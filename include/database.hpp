@@ -10,6 +10,7 @@
             i. there are two serialization libraries that was on my mind when thinking of the structure for this archive.
                 This archive is supposed to be very light weight and doesnt need to take up too much memory when invoking calls.
                 So with that in mind I went with Cereal. Check out their documents here : https://uscilab.github.io/cereal/
+                Cereal is a perfect light weight dependency that will help with implementing serialization
 */
 
 class User;
