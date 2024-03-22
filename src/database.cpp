@@ -70,7 +70,7 @@ void DataBase::SortLeastRecent()
 
     auto compareByDate = [](const User &a, const User &b)
     {
-        return a.GetCreatedAt() < b.GetCreatedAt(); // Assuming User has a member variable creationDate
+        return a.GetCreatedAt() < b.GetCreatedAt(); 
     };
 
     std::sort(users.begin(), users.end(), compareByDate);
@@ -83,7 +83,7 @@ void DataBase::SortMostRecent()
 
     auto compareByDate = [](const User &a, const User &b)
     {
-        return a.GetCreatedAt() > b.GetCreatedAt(); // Assuming User has a member variable creationDate
+        return a.GetCreatedAt() > b.GetCreatedAt();
     };
     std::sort(users.begin(), users.end(), compareByDate);
 };
