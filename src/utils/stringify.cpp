@@ -10,5 +10,6 @@ namespace utils
             const std::string &standardStringDate = date;
             return standardStringDate;
         };
+
     }
 }

@@ -24,8 +24,6 @@ unsigned long int DataBase::GetID() const
 void DataBase::List() const
 {
 
-    Introduce();
-
     for (size_t i = 0; i < users.size(); i++)
     {
         std::cout << "{ \n      USER " << i << std::endl;
@@ -70,7 +68,7 @@ void DataBase::SortLeastRecent()
 
     auto compareByDate = [](const User &a, const User &b)
     {
-        return a.GetCreatedAt() < b.GetCreatedAt(); 
+        return a.GetCreatedAt() < b.GetCreatedAt();
     };
 
     std::sort(users.begin(), users.end(), compareByDate);
