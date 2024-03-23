@@ -23,13 +23,19 @@ unsigned long int DataBase::GetID() const
 
 void DataBase::List() const
 {
-
-    for (size_t i = 0; i < users.size(); i++)
+    if (users.size() == 0)
     {
-        std::cout << "{ \n      USER " << i << std::endl;
-        this->users[i].Introduce();
-        std::cout << "}" << std::endl;
-    };
+        std::cout << "List currently contains no items" << std::endl;
+    }
+    else
+    {
+        for (size_t i = 0; i < users.size(); i++)
+        {
+            std::cout << "{ \n      USER " << i << std::endl;
+            this->users[i].Introduce();
+            std::cout << "}" << std::endl;
+        };
+    }
 };
 
 User *DataBase::FindById(int id)

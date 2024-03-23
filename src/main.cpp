@@ -11,10 +11,6 @@ int main(int argc, char *argv[])
 
     int db_process = 0;
     const int DB_END_PROCESS = 4;
-    User user1("User1");
-    User user2("User2");
-    db.Insert(user1);
-    db.Insert(user2);
 
     do
     {
@@ -36,6 +32,33 @@ int main(int argc, char *argv[])
         break;
         case 2:
         {
+            int db_sort_process = 0;
+            const int DB_END_SORT_PROCESS = 3;
+            do
+            {
+                std::cout << "[1] sort by most recent items [2] sort by least recent items [3] back" << std::endl;
+                std::cin >> db_sort_process;
+                db.List();
+                switch (db_sort_process)
+                {
+                case 1:
+                    db.SortMostRecent();
+                    break;
+                case 2:
+                    db.SortLeastRecent();
+                    break;
+                case 3:
+                    std::cout << "SORTING PROCESS ENDED" << std::endl;
+                    std::cout << "press any key to go back..." << std::endl;
+                    getchar();
+                    break;
+                default:
+                    std::cout << "SORTING PROCESS ENDED" << std::endl;
+                    std::cout << "press any key to go back..." << std::endl;
+                    getchar();
+                    break;
+                }
+            } while (db_sort_process != DB_END_SORT_PROCESS);
         }
         break;
         case 3:
