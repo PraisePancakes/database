@@ -1,6 +1,7 @@
 #pragma once
 #include "user.hpp"
 #include "schema.hpp"
+#include "hashtable.hpp"
 #include <ctime>
 #include <vector>
 
@@ -14,6 +15,7 @@
 */
 
 class User;
+class HashTable;
 
 typedef struct _dbstate
 {
@@ -28,17 +30,18 @@ typedef struct _dbstate
 
 class DataBase : public Schema
 {
-    std::vector<User> users;
+    HashTable *dbTable;
     _dbstate *currentState;
 
 public:
     DataBase();
     DataBase(const std::string &collectionName);
 
-    void Insert(const User &user);
+    void Insert(User &user);
     void List() const;
     void SortMostRecent();
     void SortLeastRecent();
+    User *FindByKey(const std::string &key);
     User *FindById(int id);
     void Introduce() const override;
     const std::string GetName() const override;

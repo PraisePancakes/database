@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     {
         system("cls");
         db.Introduce();
-        std::cout << "PROCESSES :: [1] view collection list [2] sort collection list [3] view item by id [4] end process" << std::endl;
+        std::cout << "PROCESSES :: [1] view collection list [2] sort collection list [3] view item by username [4] end process" << std::endl;
         std::cin >> db_process;
         getchar();
 
@@ -76,12 +76,13 @@ int main(int argc, char *argv[])
         break;
         case 3:
         {
-            int id;
-            std::cout << "Enter User ID : ";
-            std::cin >> id;
+            std::string username = "";
+            std::cout << "Enter Username : ";
+            std::cin >> username;
             getchar();
-            User *found = db.FindById(id);
-            
+
+            User *found = db.FindByKey(username);
+
             if (found == NULL)
             {
                 std::cout << "Could not retrieve user data :: User not found " << std::endl;
