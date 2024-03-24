@@ -3,8 +3,14 @@
 
 User::User() : Schema(){};
 
-User::User(const std::string &username) : Schema(username) {}
+User::User(const std::string &username) : Schema(username)
+{
+}
 
+void User::SetID(size_t id)
+{
+    this->id = id;
+};
 unsigned long int User::GetID() const { return this->id; };
 
 void User::Introduce() const

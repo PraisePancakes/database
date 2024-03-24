@@ -18,6 +18,13 @@ void DataBase::Insert(User &user)
     dbTable->Insert(newItem);
 };
 
+User *DataBase::FindByID(size_t id) const
+{
+    return this->dbTable->GetByIndex(id)->user;
+}
+
+void DataBase::SetID(size_t id){};
+
 unsigned long int DataBase::GetID() const
 {
     return this->id;
@@ -46,10 +53,6 @@ void DataBase::List() const
 
 
 */
-
-User *DataBase::FindById(int id)
-{
-}
 
 User *DataBase::FindByKey(const std::string &key)
 {

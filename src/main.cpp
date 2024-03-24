@@ -23,13 +23,13 @@ int main(int argc, char *argv[])
     db.Insert(user5);
 
     int db_process = 0;
-    const int DB_END_PROCESS = 4;
+    const int DB_END_PROCESS = 5;
 
     do
     {
         system("cls");
         db.Introduce();
-        std::cout << "PROCESSES :: [1] view collection list [2] sort collection list [3] view item by username [4] end process" << std::endl;
+        std::cout << "PROCESSES :: [1] view collection list [2] sort collection list [3] view item by username [4] view item by id [5] end process" << std::endl;
         std::cin >> db_process;
         getchar();
 
@@ -97,6 +97,28 @@ int main(int argc, char *argv[])
         }
         break;
         case 4:
+        {
+            size_t id = 0;
+            std::cout << "Enter Id : ";
+            std::cin >> id;
+            getchar();
+
+            User *found = db.FindByID(id);
+
+            if (found == NULL)
+            {
+                std::cout << "Could not retrieve user data :: User not found " << std::endl;
+                std::cout << "Enter any key to go back..." << std::endl;
+                getchar();
+                break;
+            }
+
+            found->Introduce();
+            std::cout << "Enter any key to go back..." << std::endl;
+            getchar();
+        }
+        break;
+        case 5:
             std::cout << "process ended" << std::endl;
             break;
         default:

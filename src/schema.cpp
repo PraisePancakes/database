@@ -3,18 +3,14 @@
 
 Schema::Schema()
 {
-    static int id = 0;
     this->name = "";
-    this->id = id++;
     this->createdAt = time(NULL);
     this->updatedAt = time(NULL);
 };
 
 Schema::Schema(const std::string &name)
 {
-    static int id = 0;
     this->name = name;
-    this->id = id++;
     this->createdAt = time(NULL);
     this->updatedAt = time(NULL);
 };

@@ -41,8 +41,9 @@ public:
     void List() const;
     void SortMostRecent();
     void SortLeastRecent();
+    void SetID(size_t id) override;
     User *FindByKey(const std::string &key);
-    User *FindById(int id);
+    User *FindByID(size_t id) const;
     void Introduce() const override;
     const std::string GetName() const override;
     unsigned long int GetID() const override;

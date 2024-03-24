@@ -23,6 +23,9 @@ class HashTable
 public:
     HashTable();
     void Insert(HashItem *item);
+    size_t GetSize() const;
+
     HashItem *Get(const std::string &key);
+    HashItem *GetByIndex(size_t index) const;
     void List() const;
 };

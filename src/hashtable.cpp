@@ -8,6 +8,11 @@ HashTable::HashTable()
     }
 };
 
+HashItem *HashTable::GetByIndex(size_t index) const
+{
+    return this->table[index];
+};
+
 size_t HashTable::hash(const std::string &key)
 {
     size_t hash = 0;
@@ -26,8 +31,11 @@ size_t HashTable::hash(const std::string &key)
 void HashTable::Insert(HashItem *item)
 {
     size_t idx = hash(item->key);
+    item->user->SetID(idx);
     this->table[idx] = item;
 };
+
+size_t HashTable::GetSize() const { return this->TABLE_SIZE; };
 
 HashItem *HashTable::Get(const std::string &key)
 {

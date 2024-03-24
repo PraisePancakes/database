@@ -26,7 +26,7 @@ class Schema
 {
 protected:
     std::string name;
-    unsigned long int id;
+    size_t id;
     time_t createdAt;
     time_t updatedAt;
 
@@ -36,6 +36,7 @@ public:
     virtual const std::string GetName() const = 0;
     virtual unsigned long int GetID() const = 0;
     const std::string &StringifyTime(time_t time) const;
+    virtual void SetID(size_t id) = 0;
     virtual void Introduce() const = 0;
     // virtual void Serializable() const = 0;
 
