@@ -9,6 +9,19 @@ int main(int argc, char *argv[])
     DataBase db("Collection1");
     system("cls");
 
+    User user1("User1");
+    User user2("User2");
+    User user3("User3");
+
+    User user4("User4");
+    User user5("User5");
+
+    db.Insert(user1);
+    db.Insert(user2);
+    db.Insert(user3);
+    db.Insert(user4);
+    db.Insert(user5);
+
     int db_process = 0;
     const int DB_END_PROCESS = 4;
 
@@ -25,7 +38,7 @@ int main(int argc, char *argv[])
         case 1:
         {
             db.List();
-            std::cout << "press any key to go back...";
+            std::cout << "Enter any key to go back..." << std::endl;
             getchar();
         }
 
@@ -49,12 +62,12 @@ int main(int argc, char *argv[])
                     break;
                 case 3:
                     std::cout << "SORTING PROCESS ENDED" << std::endl;
-                    std::cout << "press any key to go back..." << std::endl;
+                    std::cout << "Enter any key to go back..." << std::endl;
                     getchar();
                     break;
                 default:
                     std::cout << "SORTING PROCESS ENDED" << std::endl;
-                    std::cout << "press any key to go back..." << std::endl;
+                    std::cout << "Enter any key to go back..." << std::endl;
                     getchar();
                     break;
                 }
@@ -63,6 +76,23 @@ int main(int argc, char *argv[])
         break;
         case 3:
         {
+            int id;
+            std::cout << "Enter User ID : ";
+            std::cin >> id;
+            getchar();
+            User *found = db.FindById(id);
+            
+            if (found == NULL)
+            {
+                std::cout << "Could not retrieve user data :: User not found " << std::endl;
+                std::cout << "Enter any key to go back..." << std::endl;
+                getchar();
+                break;
+            }
+
+            found->Introduce();
+            std::cout << "Enter any key to go back..." << std::endl;
+            getchar();
         }
         break;
         case 4:

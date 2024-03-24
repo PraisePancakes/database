@@ -1,5 +1,6 @@
 #include "../include/database.hpp"
 #include <algorithm>
+#include <cmath>
 
 DataBase::DataBase() : Schema(), currentState(new _dbstate)
 {
@@ -40,14 +41,28 @@ void DataBase::List() const
 
 User *DataBase::FindById(int id)
 {
-    for (size_t i = 0; i < users.size(); i++)
+    int left = 0;
+    int right = users.size() - 1;
+
+    while (left <= right)
     {
-        if (this->users[i].GetID() == id)
+        int mid = std::floor((right + left) / 2);
+
+        if (users[mid].GetID() == id)
         {
-            std::cout << "__FOUND USER: " << std::endl;
-            return &users[i];
+            return &users[mid];
+        };
+
+        if (id > users[mid].GetID())
+        {
+            left = mid + 1;
         }
-    }
+
+        if (id < users[mid].GetID())
+        {
+            right = mid - 1;
+        }
+    };
 
     return NULL;
 };
