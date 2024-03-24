@@ -47,7 +47,7 @@ void DataBase::List() const
     what does this mean?
     Users should be inserted into the data base as soon as they are created,
     this can change so that creating the user will push the user into the database through the user constructor.
-    The problem with that approach however is that the db has to be passed by REFERENCE to each user object. so say we are on a x86-64 bit architechture. This means that
+    The problem with that approach however is that the db has to be passed by REFERENCE to each user object. so say we are on a x86-64 architechture. This means that
     each variable being passed by reference is 8 bytes. This seems feasible compared to the REAL size of the db object however, if there are lets say, 4 million users, then that means
     that there will be 32 million bytes being used just from the User class constructors alone. This is a tremendous fault in the design and needs to be taken into account.
     However, currently we are not passing any references to the constructor, so the size goes down from 32 million bytes to 0. Now back to the algorithm. The only way for this to work for now is to insert
