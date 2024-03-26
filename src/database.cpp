@@ -30,7 +30,12 @@ void DataBase::Insert(User &user)
 
 User *DataBase::FindByID(size_t id) const
 {
-    return this->dbTable->GetByIndex(id)->user;
+    HashItem *item = dbTable->GetByIndex(id);
+    if (item == nullptr)
+    {
+        return nullptr; // Return nullptr if item is not found
+    }
+    return item->user;
 }
 
 void DataBase::SetID(size_t id){};
