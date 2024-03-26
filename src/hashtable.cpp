@@ -1,12 +1,18 @@
 #include "../include/hashtable.hpp"
+#include <algorithm>
 
 HashTable::HashTable()
+{
+    Clear();
+};
+
+void HashTable::Clear()
 {
     for (size_t i = 0; i < this->TABLE_SIZE; i++)
     {
         this->table[i] = nullptr;
     }
-};
+}
 
 HashItem *HashTable::GetByIndex(size_t index) const
 {

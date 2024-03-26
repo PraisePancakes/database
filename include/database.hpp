@@ -23,7 +23,7 @@ typedef struct _dbstate
     bool SortedByNewestItem;
     _dbstate()
     {
-        this->SortedByNewestItem = true;
+        this->SortedByNewestItem = false;
         this->SortedByOldestItem = false;
     };
 } _dbstate;
@@ -39,8 +39,8 @@ public:
 
     void Insert(User &user);
     void List() const;
-    void SortMostRecent();
-    void SortLeastRecent();
+    void SortByOldest();
+    void SortByNewest();
     void SetID(size_t id) override;
     User *FindByKey(const std::string &key);
     User *FindByID(size_t id) const;

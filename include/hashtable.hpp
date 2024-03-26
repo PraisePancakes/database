@@ -16,16 +16,17 @@ typedef struct HashItem
 
 class HashTable
 {
+public:
+    HashTable();
+    void Clear();
     static const int TABLE_SIZE = 1000001;
     HashItem *table[TABLE_SIZE];
     size_t hash(const std::string &key);
-
-public:
-    HashTable();
     void Insert(HashItem *item);
     size_t GetSize() const;
 
     HashItem *Get(const std::string &key);
     HashItem *GetByIndex(size_t index) const;
+
     void List() const;
 };

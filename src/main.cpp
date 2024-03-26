@@ -10,16 +10,23 @@ int main(int argc, char *argv[])
     system("cls");
 
     User user1("User1");
+    sleep(3);
     User user2("User2");
+    sleep(3);
     User user3("User3");
-
+    sleep(3);
     User user4("User4");
+    sleep(3);
     User user5("User5");
 
     db.Insert(user1);
+
     db.Insert(user2);
+
     db.Insert(user3);
+
     db.Insert(user4);
+
     db.Insert(user5);
 
     int db_process = 0;
@@ -49,16 +56,16 @@ int main(int argc, char *argv[])
             const int DB_END_SORT_PROCESS = 3;
             do
             {
-                std::cout << "[1] sort by most recent items [2] sort by least recent items [3] back" << std::endl;
+                std::cout << "[1] sort by oldest items  [2] sort by newest items  [3] back" << std::endl;
                 std::cin >> db_sort_process;
                 db.List();
                 switch (db_sort_process)
                 {
                 case 1:
-                    db.SortMostRecent();
+                    db.SortByOldest();
                     break;
                 case 2:
-                    db.SortLeastRecent();
+                    db.SortByNewest();
                     break;
                 case 3:
                     std::cout << "SORTING PROCESS ENDED" << std::endl;
